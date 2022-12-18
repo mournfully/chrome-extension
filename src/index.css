@@ -46,26 +46,13 @@ button {
 }
 
 #tabcount abbr span {
-  border-bottom: 1px dotted #000;
+  border-bottom: 1px dotted #00a67d;
 }
 
 hr {
   margin: 20px 0 15px 0;
   border: none;
-  border-top: 1px solid #c0c0c0;
-}
-
-label.checkbox {
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-  user-select: none;
-  -webkit-user-select: none;
-}
-
-input[type='checkbox'] {
-  flex: none;
-  margin-right: 5px;
+  border-top: 1px solid #00a67d;
 }
 
 #extract {

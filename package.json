@@ -5,8 +5,8 @@
   "scripts": {
     "clean": "rimraf dist",
     "test": "npx jest --collect-coverage",
-    "build": "npm run clean && parcel build src/manifest.json src/lazyload.html",
-    "watch": "npm run clean && parcel watch src/manifest.json src/lazyload.html --no-hmr"
+    "build": "npm run clean && parcel build src/manifest.json",
+    "watch": "npm run clean && parcel watch src/manifest.json --no-hmr"
   },
   "keywords": [],
   "author": "mournfully",

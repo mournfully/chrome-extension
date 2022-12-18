@@ -1,6 +1,5 @@
 import { extractURLs } from './extract';
 import { loadSites, URL_LINE_SPLIT_REGEX } from './load';
-import { getStoredOptions, StorageKey, storeValue } from './storage';
 import { getUIDef, UIDef } from './ui';
 import { debounce } from 'ts-debounce';
 
@@ -43,14 +42,6 @@ const debouncedUpdateTabCount = debounce(
 export const init = async (): Promise<void> => {
   const ui = getUIDef();
 
-  /* restore options */
-  const options = await getStoredOptions();
-  ui.txtArea.value = options.txt;
-  ui.lazyLoadCheckbox.checked = options.lazyload;
-  ui.randomCheckbox.checked = options.random;
-  ui.reverseCheckbox.checked = options.reverse;
-  ui.preserveCheckbox.checked = options.preserve;
-
   /* add text input events */
   ui.txtArea.addEventListener('input', () => {
     debouncedSaveUrlList(ui);
@@ -62,40 +53,12 @@ export const init = async (): Promise<void> => {
     saveUrlList(ui);
     loadSites(
       ui.txtArea.value,
-      ui.lazyLoadCheckbox.checked,
-      ui.randomCheckbox.checked,
-      ui.reverseCheckbox.checked
     );
   });
   ui.extractButton.addEventListener('click', () => {
     ui.txtArea.value = extractURLs(ui.txtArea.value);
     saveUrlList(ui);
     updateTabCount(ui);
-  });
-
-  /* add options events */
-  ui.lazyLoadCheckbox.addEventListener('change', (event) =>
-    storeValue<boolean>(
-      StorageKey.lazyload,
-      (<HTMLInputElement>event.target).checked
-    )
-  );
-  ui.randomCheckbox.addEventListener('change', (event) =>
-    storeValue<boolean>(
-      StorageKey.random,
-      (<HTMLInputElement>event.target).checked
-    )
-  );
-  ui.reverseCheckbox.addEventListener('change', (event) =>
-    storeValue<boolean>(
-      StorageKey.reverse,
-      (<HTMLInputElement>event.target).checked
-    )
-  );
-  ui.preserveCheckbox.addEventListener('change', (event) => {
-    const isChecked = (<HTMLInputElement>event.target).checked;
-    storeValue<boolean>(StorageKey.preserve, isChecked);
-    storeValue<string>(StorageKey.urlList, isChecked ? ui.txtArea.value : '');
   });
 
   /* update tabcount */
