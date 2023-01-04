@@ -22,40 +22,32 @@
                 </abbr>
             </span>
         </section>
-        <script type="module" src="./open-tabs/index.ts"></script>
         <hr>
 
         <section>
             <label for="copyForm">Copy titles and urls into clipboard</label>
             <form id="copyForm">
-                <input type="radio" id="markdown" name="format" value="markdown" />
-                <label for="markdown">Copy as markdown</label>
-                <input type="radio" id="url" name="format" value="url" />
-                <label for="url">Copy urls</label>
-                <input type="radio" id="title" name="format" value="title" />
-                <label for="title">Copy titles</label>
+                <label for="markdown">Copy as markdown</label><input type="radio" name="format" id="markdown"/>
+                <label for="url">Copy urls</label><input type="radio" name="format" id="url"/>
+                <label for="title">Copy titles</label><input type="radio" name="format" id="title"/>
                 <br>
-                <input type="radio" id="single" name="scope" value="single" />
-                <label for="single">Copy tab</label>
-                <input type="radio" id="all" name="scope" value="all" />
-                <label for="all">Copy all tabs</label>
-                <input type="radio" id="rightward" name="scope" value="rightward" />
-                <label for="rightward">Copy tabs to the right</label>
+                <label for="single">Copy tab</label><input type="radio" name="scope" id="single"/>
+                <label for="all">Copy all tabs</label><input type="radio" name="scope" id="all"/>
+                <label for="rightward">Copy tabs to the right</label><input type="radio" name="scope" id="rightward"/>
             </form>
         </section>
         <section>
             <button id="copy" tabindex="6">Copy</button>
         </section>
-        <script type="module" src="./copy-tabs/index.ts"></script>
         <hr>
 
         <section>
             <button id="reload" tabindex="6">Reload all tabs in current window</button>
         </section>
-        <script type="module" src="./reload-tabs/index.ts"></script>
         <hr>
-
+        
     </main>
+    <script type="module" src="./popup.ts"></script>
 </body>
 
 </html>

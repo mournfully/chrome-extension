@@ -1,7 +1,6 @@
-import { getUIDef } from '../common/ui';
-import { getStoredOptions, StorageKey, storeValue } from '../common/storage';
+import { getUIDef } from './ui';
+import { getStoredOptions, StorageKey, storeValue } from './storage';
 import { debounce } from 'ts-debounce';
-import { copyTabsHandler } from './copy';
 
 export { };
 
@@ -27,6 +26,10 @@ const debouncedSaveOptions = debounce(
     saveOptions,
     SAVE_URL_LIST_DEBOUNCE_TIME_MS
 );
+
+function copyTabsHandler(dataFormat, dataAction) {
+	setupOptions(dataFormat, dataAction);
+}
 
 export const init = async (): Promise<void> => {
     const ui = getUIDef();

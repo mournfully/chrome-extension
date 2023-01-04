@@ -32,7 +32,7 @@ I wonder if I could easily integrate [Youtube NonStop](https://github.com/lawfx/
 
 I want [enchanced-github](https://github.com/softvar/enhanced-github)'s ability to show each repo's size in the sidebar. Besides, I really hate how slow it can be and how it shows each files size...
 
-And there was this browser some youtuber was shilling to us, and they kept going on and on about how their browser would automatically pause their music when a video was being played and would resume afterwards. I wonder if I could have that from my chrome extension.
+*on second thought, this kind of complexity is making me start to change my mind*
 
 ---
 
@@ -45,3 +45,5 @@ docker exec -it mournfuly-extension sh
 ```
 
 By the way, `node_modules` and `.parcel-cache` are meant to look empty because their contents are inside a docker volume.
+
+Perhaps we should bulid something to track the files we referenced to create this extensions. So, that in the event of an update, we could in turn update our extensions as well :thonk:

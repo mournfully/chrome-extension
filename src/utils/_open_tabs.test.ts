@@ -2,11 +2,11 @@ import {
   init,
   SAVE_URL_LIST_DEBOUNCE_TIME_MS,
   UPDATE_TAB_COUNT_DEBOUNCE_TIME_MS,
-} from '.';
+} from '../popup';
 import { extractURLs } from './extract';
 import { loadSites } from './load';
-import { getStoredOptions, StorageKey, storeValue } from '../common/storage';
-import { getUIDef } from '../common/ui';
+import { getStoredOptions, StorageKey, storeValue } from './storage';
+import { getUIDef } from './ui';
 import * as fs from 'fs';
 
 const BODY_HTML = fs.readFileSync('./src/popup.html', 'utf-8');

@@ -1,4 +1,4 @@
-function reloadWindow(win) {
+export function reloadWindow(win) {
     //! console.log("function reloadWindow acknowledges")
     const bypassCache = false
     chrome.tabs.query({ windowId: win.id }, async (tabs) => {
@@ -14,9 +14,3 @@ function reloadWindow(win) {
 //!     console.log("function test acknowledges")
 //!     console.log(win)
 //! }
-
-export async function reloadHandler() {
-    //! console.log("function reloadHandler acknowledges")
-    //! chrome.windows.getCurrent((win) => this.reloadWindow(win))
-    chrome.windows.getCurrent((win) => reloadWindow(win))
-}

@@ -2,7 +2,7 @@ import browser from 'webextension-polyfill';
 import ClipboardJS from 'clipboard';
 
 // see: https://stackoverflow.com/questions/63526969/how-do-you-return-multiple-values-from-a-typescript-function
-async function setupOptions(dataFormat, dataAction) {
+export async function setupOptions(dataFormat: string, dataAction: string) {
 	// Query only tabs that are in the current window aka the window that contains the code that is currently executing.
 	let options = { currentWindow: true };
 
@@ -27,7 +27,7 @@ async function setupOptions(dataFormat, dataAction) {
  * @param dataFormat - type of data format to copy e.g. "md", "title", or "url"
  * @param dataAction - action when it copies: "current", "all", or "all to the right"
  */
-function formatInput(dataFormat, options, tabStart) {
+function formatInput(dataFormat: string, options, tabStart) {
 	let output = '';
 	chrome.tabs.query(options, (tabs) => {
 		for (let i = tabStart; i < tabs.length; i++) {
@@ -64,7 +64,8 @@ function formatInput(dataFormat, options, tabStart) {
 				output += '\n';
 			}
 		}
-		copyToClipboard(output);
+		
+		return output
 	});
 }
 
@@ -83,8 +84,4 @@ async function getCurrentTab() {
 	let queryOptions = { active: true, lastFocusedWindow: true };
 	let [tab] = await chrome.tabs.query(queryOptions);
 	return tab;
-}
-
-export function copyTabsHandler(dataFormat, dataAction) {
-	setupOptions(dataFormat, dataAction);
 }

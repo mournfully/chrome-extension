@@ -2,8 +2,8 @@ import browser from 'webextension-polyfill';
 
 export enum StorageKey {
   urlList = 'txt',
-  tabFormat = 'tabFormat', // md, url, title
-  tabScope = 'tabScope', // active, all, rightward
+  tabFormat = 'tabFormat',
+  tabScope = 'tabScope',
 }
 
 export interface StoredOptions {

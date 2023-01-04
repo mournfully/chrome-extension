@@ -1,8 +1,8 @@
 {
   "name": "Mournfully's Extension",
-  "version": "1.2.2",
+  "version": "1.3.1",
   "manifest_version": 3,
-  "description": "An amalgamation of a couple distinct chrome extensions under one unified interface",
+  "description": "An amalgamation of a couple small yet distinct chrome extensions under one unified interface",
   "homepage_url": "https://github.com/mournfully",
   "icons": {
     "16": "icons/icon16.png",
